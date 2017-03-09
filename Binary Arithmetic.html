@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Binary Arithmetic</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+	<link rel="shortcut icon" href="temp.ico"/>
+	<meta charset="UTF-8">
+	<meta content="viewport" content="width=device-width initial-scale=1.0">
+	<style type="text/css">
+		.greyit{
+			background-color: rgb(220,220,220);
+		}
+		.foot{
+			background-color: rgb(220,220,220);
+			color: black;
+			padding: 10px;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="container">
+			<div class="well">
+				<h1 class="text-center">Calculator</h1>
+				<a href="about.html"><button class="btn btn-primary pull-right">About</button></a>
+				<span>&nbsp;</span>
+			</div>
+  			<div class="row content">
+    			<div class="col-sm-3 sidenav">
+      				<h3>Choose</h3>	
+      				<ul class="nav nav-pills nav-stacked">
+        				<li><a href="trywindowlocation.html">Base conversions</a></li>
+        				<li><a href="tempcalc.html">Temp-conversion</a></li>
+        				<li  class="active"><a href="Binary Arithmetic.html">Binary Arithmetic</a></li>
+        				<!--<li><a href="#">Mass conversions</a></li>-->
+      				</ul><br>
+       			</div>
+    			<div class="col-sm-9">
+      				<h4>Binary Arithmetic</h4>
+      				<hr>
+      				<p>First Enter both the binary numbers in which you want to peform operation and then Enter that operation. For example, If you want to add 2 binary numbers then write + , if subtract then -, simlarly for division and multiplication also.</p><br><br><br>
+      				<div class="row">
+      					<div class="col-lg-3 col-sm-3 col-xs-3"></div>
+      					<div class="col-lg-3 col-sm-3 col-xs-3"><span class="text-primary">Enter Number 1:</span></div>
+      					<div class="col-lg-3 col-sm-3 col-xs-3"><span class="text-primary">Enter Number 2:</span></div>
+      					<div class="col-lg-3 col-sm-3 col-xs-3"></div>
+
+      				</div>
+      				<div class="row">
+      					<div class="col-lg-3 col-sm-3 col-xs-3"></div>
+      					<div class="col-lg-3 col-sm-3 col-xs-3"><span><input type="number" class="form-control" value="" name="number1" id="num1"></span></div>
+      					<div class="col-lg-3 col-sm-3 col-xs-3"><span><input type="number" class="form-control" value="" name="number2" id="num2"></span></div>
+      					<div class="col-lg-3 col-sm-3 col-xs-3"></div>
+
+      				</div><br><br>
+      				<div class="row">
+      					<div class="col-lg-4 col-sm-4 col-xs-4"></div>
+      					<div class="col-lg-4 col-sm-4 col-xs-4 text-center"><span class="text-primary">Enter Operation(+,-,*,/)</span></div>
+      					<div class="col-lg-4 col-sm-4 col-xs-4"></div>
+
+      				</div><br><br>
+             
+      				<div class="row">
+      					<div class="col-lg-4 col-sm-4 col-xs-4"></div>
+      					<div class="col-lg-4 col-sm-4 col-xs-4"><span><input class="form-control" type="text" value="" name="operation" id="operation" placeholder="e.g: +"></span></div>
+      					<div class="col-lg-4 col-sm-4 col-xs-4"></div>
+              </div><br><br>
+              <div class="row">
+                <div class="col-lg-4 col-sm-4 col-xs-4"></div>
+                <div class="col-lg-4 col-sm-4 col-xs-4 text-center"><button class="btn btn-primary" onclick="myFunc()">Calculate</button></div>
+                <div class="col-lg-4 col-sm-4 col-xs-4"></div>
+
+              </div>
+
+      				<br><br>
+      				<div class="row">
+      					<div class="col-lg-4 col-sm-4 col-xs-4 text-right text-success"><span><b>Result is:-</b></span></div>
+      					<div class="col-lg-4 col-sm-4 col-xs-4"><span><input type="text" class="form-control" name="result" id="result"></span></div>
+      					<div class="col-lg-4 col-sm-4 col-xs-4"></div>
+
+      				</div>
+
+
+
+      			</div>
+      		</div><br><br><br>
+
+      		<footer class="container foot text-center">
+  				<p>Made by:-Saurav bhagat</p>
+			</footer>
+      	</div>
+
+
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <script type="text/javascript">
+  function myFunc()
+        {
+            var nu1=document.getElementById("num1").value;
+            var nu2=document.getElementById("num2").value;
+            var opr=document.getElementById("operation").value;
+            var out;
+            if(nu2==0 && opr=='/')
+            {
+              alert("can't divide by zero!!");
+            }
+            else if(nu1==0 && nu2==0)
+            {
+              if(opr='/')
+              {
+                alert("Can't divide by zero!!");
+              }
+              else
+              out=0;
+            }
+            else if(opr=="+")
+            {
+
+              var temp=Number(bnToDec(nu1))+Number(bnToDec(nu2));
+              
+              out=deToB(temp);
+
+            }
+            else if(opr=="-")
+            {
+              var temp=Number(bnToDec(nu1))-Number(bnToDec(nu2));
+              
+              out=deToB(temp);
+
+            }
+            else if(opr=="*")
+            {
+              var temp=Number(bnToDec(nu1))*Number(bnToDec(nu2));
+              
+              out=deToB(temp);
+
+            }
+            else if(opr=="/")
+            {
+              var temp=Number(bnToDec(nu1))/Number(bnToDec(nu2));
+              
+              out=deToB(temp);
+
+            }
+            else
+              out="Invalid Input!!";
+            document.getElementById("result").value=out;
+            document.getElementById("num1").value='';
+            document.getElementById("num2").value='';
+            document.getElementById("operation").value='';
+        }
+        
+    function bnToDec(x)
+    {
+        var floarr=String(x).split('.');
+        var flo=floarr[1];
+        var dec=0,i;
+        var q=parseInt(x);
+        var j=String(q).length;           //for i in range(0, j)
+        for(i=0;i<j;i++)
+        {
+          dec= dec+(q%10)*(2**(i))
+            q=Math.floor(q/10);
+        }
+        var flot=0,b,outt;
+        if(flo!=undefined)
+        {
+            var le=String(flo).length;
+            for(i=1;i<=le;i++)                                              //for i in range(1, le+1)
+            {
+                flot=flot+ parseInt(flo[i-1])*(Math.pow(2,-i));              //(2**(-i)
+            }
+                //flot is right.
+                //alert(flot);
+        }
+            
+        
+        if(flot!=0)
+        {
+            var y= String(flot).split('.');
+            var yy=y[1];
+            b=String(dec)+'.'+yy;
+        }
+        else
+        {
+            b=String(dec);
+        }
+            //b=String(dec);
+        if(x-parseInt(x)==0)            //true means x does not contain exponent part.
+            outt= parseInt(b);
+        else                       //false, means it has.hence print whole b
+            outt= b;
+        return(outt);
+    }
+
+
+    function deToB(x)
+        {
+            var pos=Math.abs(x);
+            var p= parseInt(pos);
+            var b='';
+            var flo= pos-p;
+            while(p>0)
+            {
+                b=b+String(p%2);
+                p=Math.floor(p/2);                              //To reverse--> s.split('').reverse().join('')
+            }
+            var b=b.split('').reverse().join('');
+            b=b+'.';
+            for(i=0;i<5;i++)
+            {
+                b=b+ String(parseInt(flo*2));
+                flo=(flo*2)-parseInt(flo*2);
+            }
+            if(pos-parseInt(pos)==0)
+                var out=parseInt(b);
+            else
+                out=b;
+            if(parseInt(x)>0)
+                outt=out;
+            else
+                outt= 0-out;
+            return(outt);
+        }
+  </script>
+</body>
+</html>

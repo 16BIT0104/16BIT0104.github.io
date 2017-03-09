@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Base conversion</title>
+	<meta charset="utf-8">
+	<link rel="shortcut icon" href="temp.ico"/>
+	<meta name="viewport" content="width=device-width initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<style type="text/css">
+		.greyit{
+			background-color: rgb(220,220,220);
+		}
+		.foot{
+			background-color: rgb(220,220,220);
+			color: black;
+			padding: 10px;
+		}
+
+	</style>
+</head>
+<body>
+	
+<div class="container">
+	<div class="well">
+		<h1 class="text-center">Calculator</h1>
+		<a href="about.html"><button class="btn btn-primary pull-right">About</button></a>
+		<span>&nbsp;</span>
+	</div>
+  	<div class="row content">
+    	<div class="col-sm-3 sidenav">
+      	<h3>Choose</h3>
+      	<ul class="nav nav-pills nav-stacked">
+        	<li class="active"><a href="trywindowlocation.html">Base conversions</a></li>
+        	<li><a href="tempcalc.html">Temp-conversion</a></li>
+        	<li><a href="Binary Arithmetic.html">Binary Arithmetic</a></li>
+        	<!--<li><a href="#">Mass conversions</a></li>-->
+      	</ul><br>
+       	</div>
+    	<div class="col-sm-9">
+      		<h4>Base convertor</h4>
+      		<hr>
+      		<p> you can choose any base between 1 to 30. And just give the base number in both "from base" and "to base "
+      			and enter the number in that base which you want to convert. </p><br><br>
+      		<div class="row">
+      			<div class="col-lg-3 col-sm-3 col-xs-3">
+      				<span class="tex"><b>From Base:<b></span>
+      			</div>
+      			<div class="col-lg-3 col-sm-3 col-xs-3">
+      				<input type="text" class="form-control" name="fromb" id="frm" value="" placeholder="e.g: 10"></input>
+
+      			</div>
+      			<div class="col-lg-3 col-sm-3 col-xs-3">
+      				<span class="tex"><b>To Base:<b></span>
+      			</div>
+      			<div class="col-lg-3 col-sm-3 col-xs-3">
+      				<input type="text" class="form-control" name="tob" id="to" value="" placeholder="e.g: 16"></input>
+				</div>
+      		</div><br><br><br><br><br>
+      		<div class="row">
+      			<div class="col-lg-6 col-sm-6 col-xs-6">
+      				<span><b>Enter your number:<b></span>
+
+      			</div>
+      			<div class="col-lg-6 col-sm-6 col-xs-6">
+      				<input type="text" class="form-control" name="nam" id="kch" value="" placeholder="Enter number:"></input>
+
+      			</div>
+
+      		</div><br><br>
+      		<div class="row">
+      			<div class="col-lg-4 col-sm-4 col-xs-4"></div>
+
+      			<div class="col-lg-4 col-sm-4 col-xs-4"></div>
+      			<div class="col-lg-4 col-sm-4 col-xs-4">
+      				<button onclick="myFunc()" id="butt" class="btn btn-primary">Convert</button>
+      			</div>
+
+      			</div><br>
+      		<div class="row">
+      			<div class="col-lg-6 col-sm-6 col-xs-6">
+      				<p><b>Result is:<b></p>
+
+      			</div>
+      			<div class="col-lg-6 col-sm-6 col-xs-6">
+                    <input type="text" class="form-control"  value="" id="demo" name="output">
+      			</div><br><br>
+
+      		</div>
+      	</div>
+    </div>
+
+
+     <br><br>
+	<footer class="container foot text-center">
+  		<p>Made by:-Saurav bhagat</p>
+	</footer>
+</div>
+
+
+	<script type="text/javascript">
+	    function myFunc(){
+	        var x= document.getElementById('kch').value;
+	        var fromm= document.getElementById('frm').value;
+	        var too= document.getElementById('to').value;
+	        
+	        if(too=="10" && fromm!="16"){
+	        	document.getElementById("demo").value=parseInt(x,fromm);
+	        }
+	        else if(fromm=="16")
+	        {
+	        	var z=parseInt(x,16);
+	        	document.getElementById("demo").value=(z).toString(too);
+
+	        }
+	        else{ 
+	        	var y=parseInt(Number(x),fromm);
+	        	document.getElementById("demo").value=y.toString(too);
+	        }
+          document.getElementById('kch').value='';
+          document.getElementById('frm').value='';
+          document.getElementById('to').value='';
+        }
+    </script>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    
+</body>
+</html>

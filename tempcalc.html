@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Temp conversion</title>
+	<meta charset="UTF-8">
+	<meta content="viewport" content="width=device-width initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="shortcut icon "href="temp.ico"/>
+	<style type="text/css">
+		.greyit{
+			background-color: rgb(220,220,220);
+		}
+		.foot{
+			background-color: rgb(220,220,220);
+			color: black;
+			padding: 10px;
+		}
+	</style>
+</head>
+<body>
+
+		
+
+
+
+<div class="container">
+		<div class="well">
+			<h1 class="text-center">Calculator</h1>
+			<a href="about.html"><button class="btn btn-primary pull-right">About</button></a>
+			<span>&nbsp;</span>
+		</div>
+  		<div class="row content">
+    		<div class="col-sm-3 sidenav">
+      		<h3>Choose</h3>
+      		<ul class="nav nav-pills nav-stacked">
+        		<li><a href="trywindowlocation.html">Base conversions</a></li>
+        		<li  class="active"><a href="tempcalc.html">Temp-conversion</a></li>
+        		<li><a href="Binary Arithmetic.html">Binary Arithmetic</a></li>
+        		<!--<li><a href="#">Mass conversions</a></li>-->
+      		</ul><br>
+       		</div>
+    		<div class="col-sm-9">
+      			<h4>Temp convertor</h4>
+      			<hr>
+      			<div class="row">
+      				<div class="col-lg-3 col-sm-3 col-xs-3 text-right"><span><b>From:</b></span></div>
+
+      				<div class="col-lg-3 col-sm-3 col-xs-3"><input type="text" class="form-control"      value="" placeholder="eg: C for celcius" id="from" name="fromtemp"></div>
+
+      				<div class="col-lg-3 col-sm-3 col-xs-3 text-right"><span><b>To:</b></span></div>
+
+      				<div class="col-lg-3 col-sm-3 col-xs-3 "><span><input class="form-control" type="text" value="" placeholder="eg: K for kelvin" name="totemp" id="to"></span></div>
+
+      			</div><br><br><br><br><br>
+      			<div class="row">
+
+      				<div class="col-lg-6 col-sm-6 col-xs-6 text-center"><span class="text-success"><b>Enter Temperature:</b></span></div>
+
+      				<div class="col-lg-6 col-sm-6 col-xs-6"><input type="text" class="form-control" value="" id="numm" name="numb" required></div>
+
+      			</div><br><br>
+
+      			<div class="row">
+      				<div class="col-lg-4 col-sm-4 col-xs-4"></div>
+      				<div class="col-lg-4 col-lg-4 col-xs-4">
+      					
+      				</div>
+      				<div class="col-lg-4 col-sm-4 col-xs-4">
+      					<button id="butt" class="btn btn-primary" onclick="myFunc()">Calculate</button>
+      				</div>
+
+      			</div><br><br>
+      			<div class="row">
+
+      				<div class="col-lg-6 col-sm-6 col-xs-6 text-center"><span class="text-success"><b>Result:</b></span></div>
+      				<div class="col-lg-6 col-sm-6 col-xs-6"><input type="number" class="form-control"   value="" id="result" name="output"></div>
+
+      			</div><br>
+     
+      
+     
+    		</div>
+ 		</div>
+ 		<table class="table table-responsive table-striped">
+ 			<caption><strong>Tempreture conversion Table</strong></caption><br>
+ 			<tr>
+ 				<th>From</th>
+ 				<th>To Celcius</th>
+ 				<th>To Farenhite</th>
+ 				<th>To Kelvin</th>
+ 			</tr>
+ 			<tr>
+ 				<td>Celcius</td>
+ 				<td>C</td>
+ 				<td>(C*9/5)+32</td>
+ 				<td>C+273.15</td>
+ 			</tr>
+ 			<tr>
+ 				<td>Farhenhite</td>
+ 				<td>(C*9/5)+32</td>
+ 				<td>F</td>
+ 				<td>(F-32)*5/9 + 273.15</td>
+ 			</tr>
+ 			<tr>
+ 				<td>Kelvin</td>
+ 				<td>K-273.15</td>
+ 				<td>(K-273.15)*9/5 +32</td>
+ 				<td>K</td>
+ 			</tr>
+ 		</table>
+ 		<br><br>
+	<footer class="container foot text-center">
+  		<p>Made by:-Saurav bhagat</p>
+	</footer>
+</div>
+<script>
+	
+	function myFunc()
+	{
+		var fromm=document.getElementById('from').value;
+		var too=document.getElementById('to').value;
+		var num=document.getElementById('numm').value;
+		var out;
+
+
+
+		if((fromm=="C" || fromm=="c")&& (too=="K" || too=="k"))
+			out= Number(num)+273.15;
+		else if((fromm=="K" || fromm=="k") && (too=="C" || too=="c"))
+			out= Number(num)-273.15;
+		else if((fromm=="F" || fromm=="f") && (too=="K" || too=="k"))
+			out= ((Number(num)-32)*5/9)+273.15;
+		else if((fromm=="K" || fromm=="k") && (too=="F" || too=="f"))
+			out= ((Number(num)-273.15)*9/5)+32;
+		else if((fromm=="F" || fromm=="f") && (too=="C" || too=="c"))
+			out= (Number(num)-32)*(5/9);
+		else if((fromm=="c" || fromm=="C") && (too=="F" || too=="f"))
+			out= (Number(num)*9/5)+32;
+		else
+			alert("Wrong input!!");
+
+		document.getElementById("result").value=out;
+
+		document.getElementById('from').value='';
+		document.getElementById('to').value='';
+		document.getElementById('numm').value='';
+	}
+
+</script>
+	
+
+
+
+
+
+
+
+
+
+
+
+
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+</body>
+</html>
